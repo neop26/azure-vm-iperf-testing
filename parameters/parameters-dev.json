@@ -1,0 +1,147 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "component": {
+            "value": "lab"
+        },
+        "product": {
+            "value": "demo"
+        },
+        "createdby": {
+            "value": "abs"
+        },
+        "env": {
+            "value": "dm"
+        },
+        "environmentsubid": {
+            "value": "SUBSCRIPTION_ID_OF_THE_DEPLOYMENT_TARGET"
+        },
+        "subname": {
+            "value": "server"
+        },
+        "addressPrefixes": {
+            "value":[
+              "172.25.0.0/20"
+            ] 
+        },
+        "dnsServers": {
+            "value":[
+              "1.1.1.1",
+              "4.4.4.4"
+            ] 
+        },
+        "locationList": {
+            "value":{
+                "australiaeast": "aue",
+                "australiasoutheast": "ase"
+            }
+        }, 
+        "subnets":{
+            "value":[
+                    {
+                    "name": "server",
+                    "subnetPrefix": "172.25.2.0/24",
+                    "delegation" : "Microsoft.Web/serverfarms",
+                    "privateEndpointNetworkPolicies": "disabled",
+                    "serviceEndpoints":[
+                        {
+                            "service": "Microsoft.KeyVault",
+                            "locations":[
+                                "*"
+                            ]
+                        },
+                        {
+                            "service": "Microsoft.Web",
+                            "locations":[
+                                "*"
+                            ]
+                        }
+                    ]
+                }
+            ]                      
+        }, 
+        "interfaces": {
+            "value": [
+                {
+                  "intcount": 1,
+                  "enableAcceleratedNetworking": true,
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "172.25.2.4"
+                },
+                {
+                    "intcount": 2,
+                    "enableAcceleratedNetworking": true,
+                    "privateIPAllocationMethod": "Static",
+                    "privateIPAddress": "172.25.2.8"
+                  }
+            ]
+        },
+        "pips": {
+            "value": [
+                {
+                    "pipcount": 1,
+                    "pipsku": "Basic",
+                    "piptier": "Regional",
+                    "publicIPAllocationMethod":"Static",
+                    "idleTimeoutInMinutes": 4,
+                    "publicIpAddressVersion": "IPv4",
+                    "domainNameLabel": "pip-labvm1",
+                    "extendedLocation": {}
+
+                },
+                {
+                    "pipcount": 2,
+                    "pipsku": "Basic",
+                    "piptier": "Regional",
+                    "publicIPAllocationMethod":"Static",
+                    "idleTimeoutInMinutes": 4,
+                    "publicIpAddressVersion": "IPv4",
+                    "domainNameLabel": "pip-labvm2",
+                    "extendedLocation": {}
+
+                }
+            ]
+        },
+        "linvms": {
+            "value": [
+                {
+                    "vmrole": "vm",
+                    "vmcomputername": "lvm1",
+                    "adminUsername":"ADMIN_CHANGE",
+                    "adminPassword": "PASSWORD_TEMPORARY",
+                    "enableHotpatching": false,
+                    "patchMode": "AutomaticByOS",
+                    "vmcount": 1,
+                    "vmsize": "Standard_D2s_v3",
+                    "osdisktype": "Standard_LRS",
+                    "osdeleteoption": "Delete",
+                    "datadeleteoption": "Delete",
+                    "datadisksize": 1000,
+                    "publisher": "canonical",
+                    "offer":"0001-com-ubuntu-server-focal",
+                    "vmsku":"20_04-lts-gen2",
+                    "vmversion": "latest"
+                },
+                {
+                    "vmrole": "vm",
+                    "vmcomputername": "lvm2",
+                    "adminUsername":"ADMIN_CHANGE",
+                    "adminPassword": "PASSWORD_TEMPORARY",
+                    "enableHotpatching": false,
+                    "patchMode": "AutomaticByOS",
+                    "vmcount": 2,
+                    "vmsize": "Standard_D2s_v3",
+                    "osdisktype": "Standard_LRS",
+                    "osdeleteoption": "Delete",
+                    "datadeleteoption": "Delete",
+                    "datadisksize": 1000,
+                    "publisher": "canonical",
+                    "offer":"0001-com-ubuntu-server-focal",
+                    "vmsku":"20_04-lts-gen2",
+                    "vmversion": "latest"
+                }
+            ]
+        }
+    }
+}        

@@ -1,0 +1,21 @@
+{
+    "securityRules": [
+        {
+            "name": "Allow_ALL_FROM_SPECIFIC_IP",
+            "properties": {
+            "protocol": "Tcp",
+            "sourcePortRange": "*",
+            "destinationPortRange": "*",
+            "sourceAddressPrefix": "PUBLICIP_OFFICE",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 100,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+            }
+        }
+    ]
+}
