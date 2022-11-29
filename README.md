@@ -24,10 +24,8 @@ The code is written in Bicep. Create a local repo and be able to run it from wor
 3. Open your favourite terminal
 4. Run the following Az CLI commands
 
-    ```
 `az  login`
 
 `az account set --subscription subscription_ID`
 
 `az deployment sub create --name DEPLOYMENT_NAME -l LOCATION_FOR_DEPLOYMENT -f .\deploy.bicep --parameters .\parameters\parameters-dev.json -c`
-   ```
