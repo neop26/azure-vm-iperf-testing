@@ -33,6 +33,8 @@ This bicep file deploys the following elements
 - 2 Virtual Network Interfaces with Static Private IP's
 - 2 Linux Ubuntu Latest OS
 
+*Use the parameters File to edit the number or values for some of the Azure services deployed above.*
+
 ## Parameters file to be edited
 
 This file drives your deployment, so please go through the parameters file carefully and edit them. A dry run with some of the *Generalized Items* changed to new values is highly recommended.
@@ -68,3 +70,12 @@ Iperf is a popular tool, and it is widely used in solving Bandwidth, Slowness is
 In production scenario's there will be more network components and elements at play which will definitely affect your outcome, however running a tool like iperf on VM's on Azure can help you mitigate many of these issues.
 
 Good luck!
+
+# Future Releases / Changes 
+- Better VM password Management 
+- Configuration of Iperf3 on the server post deployment using Configuration / Extentions script
+- Virtual WAN 
+- Azure Firewall 
+- ASG's 
+- Multi Region Deployment
+- Screenshots
